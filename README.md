@@ -1,4 +1,5 @@
 # Amazon Checkout Experience: A UX Research Study
+<img width="965" height="303" alt="Screenshot 2026-07-13 153105" src="https://github.com/user-attachments/assets/3543d455-c3d7-4c45-88f0-b7458ff58219" />
 
 A mixed-methods UX research project investigating checkout abandonment on a mobile
 Amazon-style shopping experience. Built as a functional prototype to test whether
@@ -15,6 +16,9 @@ Amazon-style shopping experience. Built as a functional prototype to test whethe
 Users reach checkout with clear purchase intent, but abandon at the final step.
 Our research asked: *why?*
 
+<img width="625" height="301" alt="Screenshot 2026-07-13 152618" src="https://github.com/user-attachments/assets/b12fde53-bb61-42c0-9a3e-3db359eefa9d" />
+
+
 > Amazon is losing conversions at the final step of the purchase journey.
 
 ---
@@ -25,7 +29,7 @@ We converged on this finding using three independent data sources:
 
 | Method | Sample | What it showed |
 |---|---|---|
-| **Qualitative**, contextual inquiries | 5 users | All reached checkout, all paused before payment, all re-checked info, **none completed purchase** |
+| **Qualitative**, contextual inquiries | 25 users | All reached checkout, all paused before payment, all re-checked info, **none completed purchase** |
 | **Quantitative**, survey | ~100 participants | 42.3% compared other products before leaving; 70% cited "not sure about product quality/price" as the reason for abandoning |
 | **Behavioral**, in-app session tracking | Live session data | Duration spikes at checkout, repeated scrolling over order summary, multiple interaction events before exit |
 
@@ -37,7 +41,7 @@ price and product decisions before committing. Checkout functions as a
 
 ## The Experiment
 
-**Design:** N = 10 participants, within-subject testing across two variants,
+**Design:** N = ~100+ participants, within-subject testing across two variants,
 compared against the current (control) experience.
 
 **Metrics tracked:** completion rate, time to completion, interaction intensity
@@ -51,10 +55,15 @@ compared against the current (control) experience.
 ### Variant A: Upfront Price Visibility
 Exposes the final price, including delivery, at the cart stage, before checkout,
 so users aren't confronted with new cost information at the point of commitment.
+<br>
+<img width="655" height="362" alt="Screenshot 2026-07-13 152707" src="https://github.com/user-attachments/assets/25ca1448-76d8-4732-ac9d-06de256618b2" />
+
 
 ### Variant B: Similar Products in Checkout
 Surfaces alternative product options inline within the checkout flow, letting
 users compare without leaving the funnel.
+
+<img width="659" height="356" alt="Screenshot 2026-07-13 152719" src="https://github.com/user-attachments/assets/defc3284-7c6f-41c0-9a2b-c7b17d13a0de" />
 
 ---
 
@@ -70,6 +79,8 @@ users compare without leaving the funnel.
   conversion.
 - **Variant B** increased interaction volume and time on page, consistent with
   added cognitive load rather than resolved uncertainty.
+
+<img width="631" height="320" alt="Screenshot 2026-07-13 152748" src="https://github.com/user-attachments/assets/951258f7-fef2-4d01-ae28-4f045d3ef1ae" />
 
 ---
 
