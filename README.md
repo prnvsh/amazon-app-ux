@@ -1,128 +1,122 @@
-# Amazon Android App
+# Amazon Checkout Experience: A UX Research Study
 
-A responsive, mobile-first e-commerce application that mimics the Amazon shopping experience on Android devices. This project demonstrates modern web development practices with a clean, maintainable code structure.
+A mixed-methods UX research project investigating checkout abandonment on a mobile
+Amazon-style shopping experience. Built as a functional prototype to test whether
+**upfront price visibility** reduces last-moment purchase hesitation.
+
+> **DESG318 Final Project**
+> This is an educational prototype. All product data, images, and pricing are
+> placeholders. Not affiliated with or endorsed by Amazon.
 
 ---
 
-## Features
+## The Problem
 
-### Core Functionality
+Users reach checkout with clear purchase intent, but abandon at the final step.
+Our research asked: *why?*
 
-* **Product Catalog**: Browse products across multiple categories (Electronics, Fashion, Home, Books, Sports, Toys, Beauty)
-* **Product Search**: Real-time search across product names, categories, and brands
-* **Product Details**: Detailed views with specifications, ratings, and reviews
-* **Shopping Cart**: Add/remove items, manage quantities, and calculate pricing
-* **Category Filtering**: Filter products with dedicated category icons
-* **Deal Banners**: Rotating promotional banners with category-specific deals
-* **Responsive Design**: Optimized for mobile with an Android-style frame
+> Amazon is losing conversions at the final step of the purchase journey.
 
-### User Experience
+---
 
-* **Smooth Navigation**: Bottom navigation bar with active states
-* **Toast Notifications**: Feedback for user actions
-* **Loading States**: Image loading with fallback handling
-* **Interactive Elements**: Hover states, transitions, and animations
-* **Real-time Clock**: Dynamic status bar display
+## Methodology: Triangulation
+
+We converged on this finding using three independent data sources:
+
+| Method | Sample | What it showed |
+|---|---|---|
+| **Qualitative**, contextual inquiries | 5 users | All reached checkout, all paused before payment, all re-checked info, **none completed purchase** |
+| **Quantitative**, survey | ~100 participants | 42.3% compared other products before leaving; 70% cited "not sure about product quality/price" as the reason for abandoning |
+| **Behavioral**, in-app session tracking | Live session data | Duration spikes at checkout, repeated scrolling over order summary, multiple interaction events before exit |
+
+**Synthesis:** Users are not abandoning randomly. They are actively re-evaluating
+price and product decisions before committing. Checkout functions as a
+**decision validation stage**, not a completion stage.
+
+---
+
+## The Experiment
+
+**Design:** N = 10 participants, within-subject testing across two variants,
+compared against the current (control) experience.
+
+**Metrics tracked:** completion rate, time to completion, interaction intensity
+(clicks, scrolls).
+
+### Control: Current Experience
+- Price clarity introduced late in the flow
+- No support for comparison at checkout
+- Observed: high hesitation, frequent backtracking
+
+### Variant A: Upfront Price Visibility
+Exposes the final price, including delivery, at the cart stage, before checkout,
+so users aren't confronted with new cost information at the point of commitment.
+
+### Variant B: Similar Products in Checkout
+Surfaces alternative product options inline within the checkout flow, letting
+users compare without leaving the funnel.
+
+---
+
+## Results
+
+| Variant | Completion Rate |
+|---|---|
+| Control | 40% |
+| **Variant A** (Upfront Price) | **70%** |
+| Variant B (Comparison Shelf) | 50% |
+
+- **Variant A** reduced time to completion and showed the strongest lift in
+  conversion.
+- **Variant B** increased interaction volume and time on page, consistent with
+  added cognitive load rather than resolved uncertainty.
+
+---
+
+## Recommendation
+
+Prioritize price clarity at the point of commitment to reduce abandonment at
+scale. Variant A (upfront price visibility) is the stronger candidate for
+further testing.
+
+**For the business:** faster transactions, fewer drop-offs, more value
+extracted from existing traffic.
+**For the customer:** no last-minute pricing surprises, faster and more
+confident decisions.
+
+**Next steps:** re-run with a larger sample to confirm significance; consider
+combining upfront pricing with a lighter-weight comparison affordance that
+doesn't add checkout friction.
 
 ---
 
 ## Project Structure
 
 ```
-amazon-android-app/
 ├── assets/
-│   ├── css/
-│   │   └── styles.css          # Application styles
-│   ├── js/
-│   │   └── app.js              # Application logic
-│   └── images/                 # Static assets (optional)
-├── pages/                      # Additional pages (optional)
-├── index.html                  # Entry point
-├── README.md                   # Documentation
-└── package.json                # Metadata
+│   ├── css/styles.css       # Application styles
+│   └── js/app.js            # Application logic, product data, session tracking
+├── img/                     # Product images (placeholder assets)
+├── index-a.html             # Control experience
+├── index-b.html             # Variant A: upfront price visibility
+├── index-c.html             # Variant B: comparison shelf in checkout
+├── PROJECT_SUMMARY.md
+└── skill.md
 ```
 
 ---
 
-## Technology Stack
+## Tech Stack
 
-* **HTML5**: Semantic markup
-* **CSS3**: Flexbox, Grid, animations
-* **JavaScript (ES6+)**: Modern vanilla JS
-* **Google Fonts**: Roboto font family
-
----
-
-## Key Components
-
-### CSS Architecture
-
-* Modular structure (status bar, navigation, product cards)
-* Mobile-first design
-* Responsive units (px, rem, viewport)
-* Optional CSS variables for theming
-
-### JavaScript Architecture
-
-* Modular functions (rendering, navigation, state)
-* Data-driven (products and banners arrays)
-* Event delegation
-* Lightweight state management (cart + UI state)
+- HTML5, CSS3 (Flexbox/Grid), vanilla JavaScript (ES6+)
+- Google Fonts (Roboto)
+- Session/interaction tracking via a lightweight event-capture module,
+  beaconed to a Google Apps Script endpoint for analysis
+- No frameworks, no build step. Open any `index-*.html` directly in a browser
 
 ---
 
-## Data Structure
-
-### Product Object
-
-```javascript
-{
-  id: Number,
-  name: String,
-  price: Number,
-  was: Number,
-  rating: Number,
-  reviews: Number,
-  cat: String,
-  prime: Boolean,
-  badge: String,
-  emoji: String,
-  img: String,
-  brand: String,
-  desc: String,
-  stock: Boolean
-}
-```
-
-### Banner Object
-
-```javascript
-{
-  title: String,
-  sub: String,
-  cat: String,
-  emoji: String
-}
-```
-
----
-
-## Getting Started
-
-### Prerequisites
-
-* Modern browser (Chrome, Firefox, Safari, Edge)
-* Optional: Local development server
-
-### Installation
-
-1. Clone or download the repository
-2. Navigate to the project folder
-3. Open `index.html` in your browser
-
----
-
-## Development Server (Optional)
+## Running Locally
 
 ```bash
 # Python
@@ -130,127 +124,24 @@ python -m http.server 8000
 
 # Node.js
 npx serve .
-
-# PHP
-php -S localhost:8000
 ```
 
----
-
-## Usage
-
-### Navigation
-
-* **Home**: Featured products and deals
-* **Search**: Find products instantly
-* **Categories**: Filter by category
-* **Cart**: Manage selected items
-* **Product Details**: View full product info
-
-### Shopping Flow
-
-1. Browse products
-2. Open product details
-3. Add items to cart
-4. Review cart
-5. Checkout (demo mode)
+Then open `index-a.html` (control), `index-b.html` (Variant A), or
+`index-c.html` (Variant B) in your browser.
 
 ---
 
-## Customization
+## Data & Privacy Note
 
-### Adding New Products
-
-```javascript
-{
-  id: 16,
-  name: "Product Name",
-  price: 999,
-  was: 1999,
-  rating: 4.5,
-  reviews: 1234,
-  cat: "Category",
-  prime: true,
-  badge: "New",
-  emoji: "💎",
-  img: "image-url.jpg",
-  brand: "Brand Name",
-  desc: "Product description",
-  stock: true
-}
-```
-
-### Modifying Categories
-
-1. Update category tabs in HTML
-2. Add category icons
-3. Update product data
-4. Adjust CSS if needed
-
-### Styling
-
-* Modify colors in CSS
-* Update typography
-* Adjust layout (flex/grid)
-* Customize animations
-
----
-
-## Browser Compatibility
-
-* Chrome ✅
-* Firefox ✅
-* Safari ✅
-* Edge ✅
-* Mobile Browsers ✅
-
----
-
-## Performance Considerations
-
-* Lazy loading for images
-* Minimal CSS footprint
-* No external JS dependencies
-* Browser caching support
-
----
-
-## Future Enhancements
-
-* Wishlist feature
-* User authentication
-* Payment integration
-* Product reviews
-* Advanced filtering & sorting
-* Offline support (Service Worker)
-* Progressive Web App (PWA)
-
----
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make changes
-4. Test thoroughly
-5. Submit a pull request
+This prototype logs anonymized interaction events (clicks, scroll depth, time
+on page, cart/checkout actions) for the purposes of this UX research
+assignment. No personally identifiable information is collected. Session data
+is used solely to support the behavioral-evidence arm of the triangulation
+described above.
 
 ---
 
 ## License
 
-This project is for educational purposes. Ensure compliance with Amazon’s terms if adapting designs.
-
----
-
-## Acknowledgments
-
-* Amazon (design inspiration)
-* Google Fonts (Roboto)
-* Web development community
-
----
-
-**Note**: This is a frontend demo project. All product data and images are placeholders.
-
----
+Educational project for DESG318. Not for commercial use. Amazon branding used
+for design-inspiration purposes only.
