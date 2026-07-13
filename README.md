@@ -141,18 +141,3 @@ Then open `index-a.html` (control), `index-b.html` (Variant A), or
 `index-c.html` (Variant B) in your browser.
 
 ---
-
-## Data & Privacy Note
-
-This prototype logs anonymized interaction events (clicks, scroll depth, time
-on page, cart/checkout actions) for the purposes of this UX research
-assignment. No personally identifiable information is collected. Session data
-is used solely to support the behavioral-evidence arm of the triangulation
-described above.
-
----
-
-## License
-
-Educational project for DESG318. Not for commercial use. Amazon branding used
-for design-inspiration purposes only.
